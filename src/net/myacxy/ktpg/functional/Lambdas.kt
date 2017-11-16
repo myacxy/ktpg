@@ -39,7 +39,9 @@ fun main(args: Array<String>) {
     unaryOperation(2, fun(x: Int): Int { return x + x })
 }
 
-fun unaryOperation(x: Int, op: (Int) -> Int) {}
+fun unaryOperation(x: Int, op: (Int) -> Int) {
+    op(x)
+}
 
 fun unaryOp(op: (Int) -> Int) {}
 
