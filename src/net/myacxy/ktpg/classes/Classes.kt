@@ -1,5 +1,6 @@
 package net.myacxy.ktpg.classes
 
+import java.io.IOException
 import kotlin.test.assertTrue
 
 class Customer {
@@ -24,7 +25,7 @@ class ConstructedCustomer2(id: Int, var name: String = "") {
 class ConstructedCustomer3(id: Int, var name: String = "") {
     // secondary constructor needs to call base construtor
     // var/val not allowed
-    constructor(email: String = ""): this(0, "")
+    constructor(email: String = "") : this(0, "")
 
     // read-only property
     val hasName: Boolean
@@ -35,7 +36,7 @@ class ConstructedCustomer4(id: Int, var name: String = "") {
 
     // custom setter
     var address: String = ""
-        // value can be named anything
+            // value can be named anything
         set(value) {
             // validation, manipulation...
             // field is special property that refers to backing field
@@ -49,8 +50,43 @@ class ConstructedCustomer4(id: Int, var name: String = "") {
 
 // notice data keyword
 // parameters need to have var/val
-data class DataCustomer(var id: Int, var name: String = "") {
+data class CustomerKotlin(var id: Int, var name: String = "") {
     // automatic toString, hashCode, equals, copy, can be overridden
+    val someProperty = "value"
+    @JvmField
+    val anotherProperty = "value"
+
+    fun changeStatus(status: Status = Status.CURRENT) {
+
+    }
+
+    @JvmOverloads
+    fun anotherChangeStatus(status: Status = Status.CURRENT) {
+
+    }
+
+    @JvmName("preferential")
+    fun makePreferred() {
+
+    }
+
+    fun loadStatistics(filename: String) {
+        if (filename == "") {
+            throw IOException("Filename cannot be blank")
+        }
+    }
+
+    @Throws(IOException::class)
+    fun anotherLoadStatistics(filename: String) {
+        if (filename == "") {
+            throw IOException("Filename cannot be blank")
+        }
+    }
+}
+
+enum class Status {
+    CURRENT,
+    PAST
 }
 
 fun main(args: Array<String>) {
@@ -75,8 +111,8 @@ fun main(args: Array<String>) {
 
     println(constructedCustomer4.asString())
 
-    val dc1 = DataCustomer(id = 0, name = "Lorem Ipsum")
-    val dc2 = DataCustomer(id = 0, name = "Lorem Ipsum")
+    val dc1 = CustomerKotlin(id = 0, name = "Lorem Ipsum")
+    val dc2 = CustomerKotlin(id = 0, name = "Lorem Ipsum")
     println(dc1)
     println(dc2)
     assertTrue { dc1 == dc2 }

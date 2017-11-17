@@ -1,9 +1,6 @@
 package net.myacxy.ktpg.tidbits
 
-import net.myacxy.ktpg.classes.ConstructedCustomer
-import net.myacxy.ktpg.classes.ConstructedCustomer4
-import net.myacxy.ktpg.classes.Customer
-import net.myacxy.ktpg.classes.DataCustomer
+import net.myacxy.ktpg.classes.CustomerKotlin
 import kotlin.test.assertTrue
 
 fun main(args: Array<String>) {
@@ -13,8 +10,8 @@ fun main(args: Array<String>) {
     println(continent)
     println(population)
 
-    val customer = DataCustomer(1, "Lorem Ipsum")
-    val (id, name) = DataCustomer(1, "Lorem Ipsum")
+    val customer = CustomerKotlin(1, "Lorem Ipsum")
+    val (id, name) = CustomerKotlin(1, "Lorem Ipsum")
     println(customer)
     println("id=$id, name=$name")
     assertTrue(customer.id == id)
