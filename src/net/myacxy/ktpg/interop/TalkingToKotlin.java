@@ -26,6 +26,15 @@ public class TalkingToKotlin {
 
         // annotation changes the name when it is called in java
         customerKotlin.preferential();
+
+        // simply accessible by class and function name
+        TopLevelFunctionsKt.prefix("prefix", "value");
+        // annotation changes the class name for Java
+        PrefixUtil.anotherPrefix("prefix", "value");
+        // top level property accessible by getter
+        PrefixUtil.getTopLevelProperty();
+        // 'const' keyword exposes it as a field to Java
+        String anotherTopLevelProperty = PrefixUtil.ANOTHER_TOP_LEVEL_PROPERTY;
     }
 
     public void loadStats(CustomerKotlin customerKotlin) {
