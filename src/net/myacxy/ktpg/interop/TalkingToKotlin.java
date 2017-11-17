@@ -1,5 +1,6 @@
 package net.myacxy.ktpg.interop;
 
+import net.myacxy.ktpg.classes.ClassesKt;
 import net.myacxy.ktpg.classes.CustomerKotlin;
 import net.myacxy.ktpg.classes.Status;
 
@@ -35,6 +36,11 @@ public class TalkingToKotlin {
         PrefixUtil.getTopLevelProperty();
         // 'const' keyword exposes it as a field to Java
         String anotherTopLevelProperty = PrefixUtil.ANOTHER_TOP_LEVEL_PROPERTY;
+
+        // no concept of extension functions in Java
+//        customerKotlin.extension()
+        // instead accessible by class name
+        ClassesKt.extension(customerKotlin);
     }
 
     public void loadStats(CustomerKotlin customerKotlin) {

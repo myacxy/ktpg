@@ -82,6 +82,11 @@ data class CustomerKotlin(var id: Int, var name: String = "") {
             throw IOException("Filename cannot be blank")
         }
     }
+
+}
+
+fun CustomerKotlin.extension() {
+
 }
 
 enum class Status {
