@@ -1,5 +1,7 @@
 package net.myacxy.ktpg.interop;
 
+import org.jetbrains.annotations.NotNull;
+
 public class CustomerJava {
     private int id;
     private String name;
@@ -37,6 +39,15 @@ public class CustomerJava {
 
     public void prettyPrint() {
         System.out.printf("Id: %d - Name: %s", id, name);
+    }
+
+    @NotNull
+    public String neverNull() {
+        return "A String";
+    }
+
+    public String sometimesNull() {
+        return "A String";
     }
 
     @Override

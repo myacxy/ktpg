@@ -11,6 +11,16 @@ fun main(args: Array<String>) {
     customer.prettyPrint()
 
     val runnable = Runnable { println("Invoking runnable") }
+
+    val kcr = KotlinCustomerRepository()
+    val customerJava = kcr.getById(10)
+    // requires safe call
+    val id = customerJava?.id
+
+    // notice type "String"
+    customerJava?.neverNull()
+    // notice platform type "String!"
+    customerJava?.sometimesNull()
 }
 
 class PersonKotlin : PersonJava() {
