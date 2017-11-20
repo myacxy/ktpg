@@ -1,6 +1,5 @@
 package net.myacxy.ktpg.basics
 
-import kotlin.test.assertFails
 import kotlin.test.assertTrue
 
 fun main(args: Array<String>) {

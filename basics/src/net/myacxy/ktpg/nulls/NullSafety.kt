@@ -1,7 +1,5 @@
 package net.myacxy.ktpg.nulls
 
-import java.util.*
-
 data class Entity(var id: Int) {
     fun toJson(): String? {
         return "{ id: $id }"
